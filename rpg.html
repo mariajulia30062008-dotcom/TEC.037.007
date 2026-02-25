@@ -1,56 +1,94 @@
 <script>
-    let hp_boss = 300;
+    let hp_boss = 3000;//variável que armazena a vida do boss
     let mana_Heroi = 100;
     let mana_Gasta_Total = 0;
     let acao;
+    let hp_heroi = 500;
 
-    console.log("O Chefe surgiu: 300hp")
-    for (let turno = 1; turno <=15; turno++) {
+    alert("O Chefe surgiu: 3000hp")
+    alert("Vida heroi 500hp ")
+    for (let turno = 1; turno <=15; turno++){//laço que representa os turnos de batalha, o jogo dura no máximo 15 turnos
         if (hp_boss <= 0) {
-            console.log("O Boss foi Derrotado!");
+            alert("O Boss foi Derrotado!");
             break;
         } 
-        acao = Math.floor(Math.random() * 3) + 1;
-        console.log("Ação" + acao);
-        switch(acao) {
+        //acao = Math.floor(Math.random() * 3) + 1;
+
+        let menu = "escolha sua ação: \n"
+                + "1 - Ataque Básico \n"
+                + "2 - Skill \n"
+                + "3 - ultimate \n "
+                + "4 - fugir \n ";
+                
+        let escolha = prompt(menu);//exibe o menu e armazena a escolha do usuário
+        let acao = parseInt(escolha);//converte a string para numero inteiro
+        
+        alert("Ação" + acao);//exibe a ação escolhida
+        switch(acao) {//verifica a ação escolhida
             case 1:
-                console.log("Ataque Básico. 20 dano");
+                alert("Ataque Básico. 20 dano");
                 //hp_boss = hp_boss -20
                 hp_boss -= 20;
                 break;
             
             case 2:
                 if (mana_Heroi >= 30){
-                    console.log("Skill. 50 dano");
+                    alert("Skill. 50 dano");
                     hp_boss -= 50;
                     mana_Heroi -= 30;
                     mana_Gasta_Total += 30;
                 }
                 else{
-                    console.log("Mana insulficiente!");
+                    alert("Mana insulficiente!");
                 }
-                break;
+                break;//verifica se o herói tem mana suficiente para usar a skill, se sim, aplica o dano e gasta a mana, caso contrário, exibe uma mensagem de mana insuficiente
             
             case 3:
                 if(mana_Gasta_Total >= 50){
-                    console.log("Ultimate. 150 dano");
+                    alert("Ultimate. 150 dano");
                     hp_boss -= 150; 
                     mana_Gasta_Total = 0;
                 }
                 else{
-                    console.log("Ultimate não carregada!");
+                    alert("Ultimate não carregada!");
                 }
                 break;
+            
+            case 4: 
+                if(hp_heroi <= 100){
+                    alert("GAME OVER");
+                }
+                break;
+
+            default://esse codigo faz com que caso o usuario digite um numero diferente de 1,2,3 ou 4, exiba uma mensagem de ação inválida
+                alert("Essa ação não existe")
+                
+                   
+                
         }
-        console.log(" HP Boss: " + hp_boss + " Mana: " + mana_Heroi);
+        
+        // Ataque do Boss
+        if(hp_boss > 0){
+            if(Math.random() < 0.2){
+                hp_heroi -= 50;
+                alert("O Boss atacou! -50 HP");
+            }
+            else{
+                alert("O Boss tentou atacar, mas errou!");
+            }
+        }
+        
+        mana_Heroi += 5;
+        alert(" HP Boss: " + hp_boss + " HP Herói: " + hp_heroi + " Mana: " + mana_Heroi);
+        
         
 
     }
 
     if(hp_boss <= 0){
-         console.log("Vitória");
+         alert("Vitória");
     }
     else{
-        console.log("Missão falhou! O Boss continua vivo");
+        alert("Missão falhou! O Boss continua vivo");
     }
 </script>
