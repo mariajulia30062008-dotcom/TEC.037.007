@@ -1,0 +1,20 @@
+<script>
+    let msg = "Digite a primeira nota";
+    let nota1 = parseFloat(prompt(msg));
+    msg = "Digite a segunda nota";
+    let nota2 = parseFloat(prompt(msg));
+    msg = "Digite a terceira nota";
+    let nota3 = parseFloat(prompt(msg));
+    function calculadoraMedia(n1, n2, n3){
+        notaTotal = (n1 + n2 + n3)
+        if (notaTotal / 3 >= 7){
+            return "Aprovado";
+        }
+        else{
+            return "Reprovado";
+        }
+    }
+    let Aprovado = calculadoraMedia(nota1, nota2, nota3);
+    alert(Aprovado);
+    
+</script>
