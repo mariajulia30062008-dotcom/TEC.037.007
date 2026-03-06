@@ -1,0 +1,16 @@
+<script>
+    convidados = new Set([
+        "Ricardo",
+        "Thiago",
+        "Luciana",
+        "Marcos",
+        "Fernanda"
+    ]);
+    alert(Array.from(convidados));
+    convidados.add("Vitória");
+    convidados.add("Fernanda");
+    alert(Array.from(convidados));
+    if (convidados.has("Fernanda")){
+        alert("A Fernanda já foi convidada. ")
+    }
+</script>
