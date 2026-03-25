@@ -31,8 +31,10 @@ class Personagem {
         if (this.energia == 100){
             alvo.hp -= 15;
             this.energia = 0;
+            return `O Boss usou sua habiliadde!`
         } else{
             this.energia += 50;
+            return `O Boss carregou o ataque!`
         }
     }
 }
@@ -55,13 +57,27 @@ document.getElementById("nome-heroina").textContent = `${hero.nome}`;
 document.getElementById("titulo-heroina").textContent = `✨⚔️${hero.titulo}`;
 document.getElementById("nome-boss").textContent = `${boss.nome}`;
 document.getElementById("titulo-boss").textContent = `👹💧${boss.titulo}`;
+
+// criar array de turnos
+const turnos = ["Aguardando Ação"];
 // atualizar as barras de vida
-const atualizarInterface = (mensagem) => {
+const atualizarInterface = (msg_heroina, msg_boss) => {
     document.getElementById("hp-hero").value = hero.hp;
     document.getElementById("mp-hero").value = hero.mana;
     document.getElementById("en-hero").value = hero.energia;
+    //barras do boss
+    console.log(boss.energia);
     document.getElementById("hp-boss").value = boss.hp;
     document.getElementById("en-boss").value = boss.energia;
+    document.getElementById("log-Heroina").textContent = msg_heroina;
+    document.getElementById("log-Boss").textContent = msg_boss;
+    // mensagem de vitoria/ derrota
+    if(boss.hp <= 0){
+        window.location.href = "pag01.html"
+    };
+    if(hero.hp <= 0){
+        window.location.href = "pag02.html"
+    };
 }
 
 let container = document.getElementById("controles");
@@ -76,9 +92,9 @@ listaHabilidades.forEach(hab => {
     btn.classList.add("btn", "btn-info");
     container.appendChild(btn);
     btn.onclick = () => {
-        let mensagem = hero.atacar(boss, hab);
-        atualizarInterface(mensagem);
-        boss.boss_atacar(hero);
+        let msg_heroina = hero.atacar(boss, hab);
+        let msg_boss = boss.boss_atacar(hero);
+        atualizarInterface(msg_heroina, msg_boss);
     }
 });
 

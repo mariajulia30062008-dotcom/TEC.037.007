@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a0000; /* Fundo escuro */
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .voce-perdeu {
+            font-size: 80px;
+            font-weight: bold;
+            color: #001aff;
+            text-transform: uppercase;
+            position: relative;
+            animation: tremor 0.3s infinite alternate;
+            text-shadow: 0 0 10px #001aff, 0 0 20px #001aff;
+        }
+
+        /* Efeito de Mancha/Sombra animado */
+        .mancha {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 200px;
+            background: radial-gradient(circle, rgba(21, 0, 139, 0.8) 0%, rgba(0,0,0,0) 70%);
+            animation: mancha-animada 2s infinite alternate;
+            filter: blur(10px);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        /* Animação do tremor do texto */
+        @keyframes tremor {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            100% { transform: translate(-1px, -1px) rotate(1deg); }
+        }
+
+        /* Animação da mancha (crescendo e mudando de cor) */
+        @keyframes mancha-animada {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="voce-perdeu">
+            Você Perdeu
+            <div class="mancha"></div>
+        </div>
+    </div>
+
+</body>
+</html>
