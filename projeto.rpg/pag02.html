@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Over</title>
+    <title>Você perdeu!</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            margin: 2;
+            padding: 2;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #1a0000; /* Fundo escuro */
+            background-color: #02187950; /* Fundo escuro */
             overflow: hidden;
             font-family: 'Courier New', Courier, monospace;
         }
@@ -22,13 +22,13 @@
         }
 
         .voce-perdeu {
-            font-size: 80px;
+            font-size: 100px;
             font-weight: bold;
             color: #001aff;
             text-transform: uppercase;
             position: relative;
             animation: tremor 0.3s infinite alternate;
-            text-shadow: 0 0 10px #001aff, 0 0 20px #001aff;
+            text-shadow: 0 0 10px #ffffff, 0 0 20px #001aff;
         }
 
         /* Efeito de Mancha/Sombra animado */
@@ -41,9 +41,9 @@
             height: 200px;
             background: radial-gradient(circle, rgba(21, 0, 139, 0.8) 0%, rgba(0,0,0,0) 70%);
             animation: mancha-animada 2s infinite alternate;
-            filter: blur(10px);
-            opacity: 0.5;
-            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+            z-index: -2;
         }
 
         /* Animação do tremor do texto */
