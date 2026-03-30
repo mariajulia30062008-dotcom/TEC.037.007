@@ -1,4 +1,4 @@
-import { biblioteca } from "database";
+import { biblioteca } from "./database";
 import { buscarLivroPorId } from "./actions";  
 
 const meuLivro = buscarLivroPorId(1);

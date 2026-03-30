@@ -1,4 +1,4 @@
-import { Livro } from "livro";
+import { Livro } from "./livro";
 export const  biblioteca : Livro[] = [
     {
     id: 1, 
